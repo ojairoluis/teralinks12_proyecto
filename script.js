@@ -2,14 +2,14 @@ const urlParams = new URLSearchParams(window.location.search);
 const videoId = window.location.pathname.substring(1);
 
 const loading = document.getElementById('loading');
-const videoTitleElement = document.getElementById('video-title'); // Ahora es el div del skeleton
+const videoTitleElement = document.getElementById('video-title'); // El div placeholder
 
 const btnFilemoon = document.getElementById('btn-filemoon');
 const btnStreamhg = document.getElementById('btn-streamhg');
 const btnTerabox = document.getElementById('btn-terabox');
 const socialPlaceholder = document.getElementById('social-links-placeholder');
 
-// ✅ TUS ENLACES DE REDES (los de tu script original)
+// ✅ TUS ENLACES DE REDES
 const socialLinks = {
   x: "https://x.com/patuconsumoxxd?t=lBK2T6a-4wD-fXKMzQ_Lsg&s=35",
   facebook: "https://www.facebook.com/people/GREAT-LINKS/61556741140694/?mibextid=ZbWKwL",
@@ -20,10 +20,9 @@ const socialLinks = {
 
 // ✅ TUS CANALES DE TELEGRAM
 const telegramChannels = {
-  // ⭐ ENLACE CORREGIDO ⭐
-  main: "https://t.me/teralinks12",        // Canal principal
-  catalog: "https://t.me/patuconsumoxdmenu", // Catálogo completo
-  tutorial: "https://t.me/tutodescargas"    // Tutorial de descargas
+  main: "https://t.me/teralinks12",
+  catalog: "https://t.me/patuconsumoxdmenu",
+  tutorial: "https://t.me/tutodescargas"
 };
 
 // Llamamos a nuestra API segura en Cloudflare
@@ -31,27 +30,38 @@ fetch(`/api/get-video?id=${videoId}`)
   .then(response => response.json())
   .then(data => {
     
-    videoTitleElement.classList.remove('skeleton-loader'); 
+    // 1. Preparamos el contenedor
+    videoTitleElement.classList.remove('skeleton-loader');
+    videoTitleElement.classList.remove('subtitle');
+    videoTitleElement.classList.add('video-title-container');
 
     if (data.error) {
-      videoTitleElement.textContent = data.error; 
+      // 2. Mostramos el ERROR con el nuevo estilo
+      videoTitleElement.innerHTML = `
+        <span class="video-tag video-tag-error">ERROR</span>
+        <h2 class="video-title-main">${data.error}</h2>
+      `;
       loading.textContent = "❌ Video no disponible.";
       return;
     }
 
     const video = data;
-    videoTitleElement.textContent = video.title; 
+    
+    // 3. Mostramos el TÍTULO con el nuevo estilo
+    videoTitleElement.innerHTML = `
+      <span class="video-tag">✓ VIDEO ENCONTRADO</span>
+      <h2 class="video-title-main">${video.title}</h2>
+    `;
 
+    // 4. Llenamos los botones
     btnFilemoon.href = video.filemoon;
     btnStreamhg.href = video.streamhg;
     btnTerabox.href = video.terabox;
 
     loading.style.display = 'none';
 
-    // ⭐ MOSTRAR REDES SOCIALES (CON ICONOS DE NEÓN)
+    // MOSTRAR REDES SOCIALES (con todos los iconos)
     setTimeout(() => {
-      
-      // ⭐ HTML ACTUALIZADO CON FACEBOOK E INSTAGRAM ⭐
       const socialHTML = `
         <h2 class="section-title">🌟 ¡Únete a la Comunidad!</h2>
         <div class="social-icons-container">
@@ -85,13 +95,15 @@ fetch(`/api/get-video?id=${videoId}`)
           </a>
         </div>
       `;
-      
       socialPlaceholder.innerHTML = socialHTML;
-
     }, 1000);
   })
   .catch(() => {
     videoTitleElement.classList.remove('skeleton-loader');
-    videoTitleElement.textContent = "⚠️ Error de conexión.";
+    videoTitleElement.classList.add('video-title-container');
+    videoTitleElement.innerHTML = `
+      <span class="video-tag video-tag-error">ERROR</span>
+      <h2 class="video-title-main">⚠️ Error de conexión.</h2>
+    `;
     loading.textContent = "Intenta recargar la página.";
   });
