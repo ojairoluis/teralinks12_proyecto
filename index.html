@@ -28,8 +28,6 @@
       justify-content: center;
       padding: 20px 10px;
       text-align: center;
-
-      /* ⭐ FONDO DE GRADIENTE ANIMADO */
       background: linear-gradient(-45deg, #0f0c29, #1b163f, #00ffff, #ff00de);
       background-size: 400% 400%;
       animation: gradient-animation 15s ease infinite;
@@ -127,10 +125,52 @@
     .streamhg:hover { background: #f90; box-shadow: 0 0 20px #f90, 0 0 40px #f90; }
     .terabox:hover { background: #0ef; box-shadow: 0 0 20px #0ef, 0 0 40px #0ef; }
 
+    /* ⭐ NUEVA IDEA ÚTIL: Texto de ayuda para botones ⭐ */
+    .btn-helper-text {
+      font-size: 0.85rem;
+      color: #aaa;
+      font-style: italic;
+      margin: -10px auto 15px auto; /* Lo jala hacia arriba */
+      max-width: 400px;
+    }
+    
     .loading { color: #aaa; font-style: italic; margin: 20px 0; }
     .footer { margin-top: 30px; font-size: 0.9rem; color: #aaa; }
     .footer a { color: #0ef; text-decoration: none; }
 
+    /* Estilo para el "Tag de Confirmación" */
+    .video-title-container {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid #0ef;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 30px;
+      animation: fadeIn 0.5s ease-out;
+    }
+    .video-tag {
+      display: block;
+      font-size: 0.9rem;
+      color: #0f0;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 0 5px #0f0;
+    }
+    .video-title-main {
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 700;
+      word-wrap: break-word;
+    }
+    .video-tag-error { color: #f00; text-shadow: 0 0 5px #f00; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Estilos para Iconos de Neón */
     .section-title {
       font-size: 1.5rem;
       color: #ff00de;
@@ -176,14 +216,11 @@
     .icon-x { border-color: #1DA1F2; color: #1DA1F2; --glow-color: #1DA1F2; }
     .icon-x:hover { background: #1DA1F2; box-shadow: 0 0 20px #1DA1F2; }
 
-    /* ⭐ ESTILOS AÑADIDOS ⭐ */
     .icon-facebook { border-color: #1877F2; color: #1877F2; --glow-color: #1877F2; }
     .icon-facebook:hover { background: #1877F2; box-shadow: 0 0 20px #1877F2; }
     
     .icon-instagram { border-color: #E4405F; color: #E4405F; --glow-color: #E4405F; }
     .icon-instagram:hover { background: #E4405F; box-shadow: 0 0 20px #E4405F; }
-    /* ⭐ FIN DE ESTILOS AÑADIDOS ⭐ */
-
 
     @media (min-width: 640px) {
       .container { padding: 40px; }
@@ -199,8 +236,13 @@
     <div class="subtitle skeleton-loader" id="video-title"></div>
 
     <a href="#" class="btn filemoon" id="btn-filemoon">🟢 Filemoon</a>
+    <p class="btn-helper-text">(Opción 1: Rápido y simple)</p>
+    
     <a href="#" class="btn streamhg" id="btn-streamhg">🟠 StreamHG</a>
+    <p class="btn-helper-text">(Opción 2: Servidor alternativo)</p>
+    
     <a href="#" class="btn terabox" id="btn-terabox">🔵 Terabox</a>
+    <p class="btn-helper-text">(Recomendado: Máxima velocidad)</p>
 
     <p class="loading" id="loading">🔍 Buscando enlaces...</p>
 
