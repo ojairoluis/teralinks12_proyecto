@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TERALINKS12 ⚡ Descarga Exclusiva</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Roboto', sans-serif; 
+    }
+    
+    body {
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 10px;
+      text-align: center;
+
+      /* ⭐ FONDO DE GRADIENTE ANIMADO */
+      background: linear-gradient(-45deg, #0f0c29, #1b163f, #00ffff, #ff00de);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Un poco más oscuro */
+      padding: 30px 20px;
+      border-radius: 16px;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      backdrop-filter: blur(12px); /* Más blur */
+      animation: pulse-glow-container 3s infinite alternate;
+    }
+
+    @keyframes pulse-glow-container {
+      from { box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; }
+      to { box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff; }
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      color: #ff00de;
+      margin-bottom: 25px; /* Más espacio */
+      text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+      font-weight: 700;
+    }
+
+    .subtitle { 
+      font-size: 1.1rem; 
+      color: #ddd; 
+      margin-bottom: 30px; 
+      min-height: 1.2rem;
+      word-wrap: break-word;
+    }
+
+    /* ⭐ ESTILO PARA EL SKELETON LOADER (CARGA FANTASMA) */
+    .skeleton-loader {
+      width: 80%;
+      height: 1.2rem;
+      background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+      background-size: 200% 100%;
+      animation: skeleton-animation 1.5s infinite linear;
+      border-radius: 8px;
+      margin: 0 auto 30px auto;
+    }
+
+    @keyframes skeleton-animation {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .btn {
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 16px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      color: white;
+      text-decoration: none;
+      background: transparent;
+      border: 2px solid white;
+      text-shadow: 0 0 5px white;
+      box-shadow: 0 0 5px white;
+      animation: pulse-glow-button 2s infinite alternate;
+    }
+    
+    .filemoon { border-color: #0f0; color: #0f0; text-shadow: 0 0 5px #0f0; box-shadow: 0 0 5px #0f0, inset 0 0 5px #0f0; --glow-color: #0f0; }
+    .streamhg { border-color: #f90; color: #f90; text-shadow: 0 0 5px #f90; box-shadow: 0 0 5px #f90, inset 0 0 5px #f90; --glow-color: #f90; }
+    .terabox { border-color: #0ef; color: #0ef; text-shadow: 0 0 5px #0ef; box-shadow: 0 0 5px #0ef, inset 0 0 5px #0ef; --glow-color: #0ef; }
+
+    @keyframes pulse-glow-button {
+      from { box-shadow: 0 0 5px var(--glow-color), inset 0 0 5px var(--glow-color); text-shadow: 0 0 5px var(--glow-color); }
+      to { box-shadow: 0 0 15px var(--glow-color), inset 0 0 10px var(--glow-color); text-shadow: 0 0 10px var(--glow-color); }
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.03);
+      color: #111;
+      text-shadow: none;
+    }
+    .filemoon:hover { background: #0f0; box-shadow: 0 0 20px #0f0, 0 0 40px #0f0; }
+    .streamhg:hover { background: #f90; box-shadow: 0 0 20px #f90, 0 0 40px #f90; }
+    .terabox:hover { background: #0ef; box-shadow: 0 0 20px #0ef, 0 0 40px #0ef; }
+
+    .loading { color: #aaa; font-style: italic; margin: 20px 0; }
+    .footer { margin-top: 30px; font-size: 0.9rem; color: #aaa; }
+    .footer a { color: #0ef; text-decoration: none; }
+
+    /* ⭐ ESTILOS PARA LOS ICONOS DE NEÓN */
+    .section-title {
+      font-size: 1.5rem;
+      color: #ff00de;
+      margin: 30px 0 20px;
+      text-shadow: 0 0 5px #ff00de;
+    }
+    .social-icons-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .social-icon {
+      font-size: 2rem; /* Tamaño del icono */
+      color: #fff;
+      padding: 15px;
+      border: 2px solid;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: pulse-glow-button 2s infinite alternate;
+    }
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      color: #111;
+    }
+    
+    /* Colores neón para cada icono */
+    .icon-whatsapp { border-color: #25D366; color: #25D366; --glow-color: #25D366; }
+    .icon-whatsapp:hover { background: #25D366; box-shadow: 0 0 20px #25D366; }
+    
+    .icon-telegram { border-color: #0088cc; color: #0088cc; --glow-color: #0088cc; }
+    .icon-telegram:hover { background: #0088cc; box-shadow: 0 0 20px #0088cc; }
+    
+    .icon-tiktok { border-color: #A26CE7; color: #A26CE7; --glow-color: #A26CE7; }
+    .icon-tiktok:hover { background: #A26CE7; box-shadow: 0 0 20px #A26CE7; }
+    
+    .icon-x { border-color: #1DA1F2; color: #1DA1F2; --glow-color: #1DA1F2; }
+    .icon-x:hover { background: #1DA1F2; box-shadow: 0 0 20px #1DA1F2; }
+
+
+    @media (min-width: 640px) {
+      .container { padding: 40px; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body class="animated-bg">
+
+  <div class="container">
+    <h1>⚡ TERALINKS12 ⚡</h1>
+    
+    <div class="subtitle skeleton-loader" id="video-title"></div>
+
+    <a href="#" class="btn filemoon" id="btn-filemoon">🟢 Filemoon</a>
+    <a href="#" class="btn streamhg" id="btn-streamhg">🟠 StreamHG</a>
+    <a href="#" class="btn terabox" id="btn-terabox">🔵 Terabox</a>
+
+    <p class="loading" id="loading">🔍 Buscando enlaces...</p>
+
+    <div id="social-links-placeholder"></div>
+    
+    <div class="footer">
+      <p>💡 Cada clic ayuda a mantener el servicio gratuito 💙</p>
+      <p>© 2025 | TERALINKS12</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
