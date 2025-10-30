@@ -9,7 +9,7 @@ const btnStreamhg = document.getElementById('btn-streamhg');
 const btnTerabox = document.getElementById('btn-terabox');
 const socialPlaceholder = document.getElementById('social-links-placeholder');
 
-// ✅ TUS ENLACES DE REDES
+// ✅ TUS ENLACES DE REDES (los de tu script original)
 const socialLinks = {
   x: "https://x.com/patuconsumoxxd?t=lBK2T6a-4wD-fXKMzQ_Lsg&s=35",
   facebook: "https://www.facebook.com/people/GREAT-LINKS/61556741140694/?mibextid=ZbWKwL",
@@ -20,7 +20,8 @@ const socialLinks = {
 
 // ✅ TUS CANALES DE TELEGRAM
 const telegramChannels = {
-  main: "https://t.me/+iQ-eesmcw0VhYzQx",        // Canal principal de screenshots
+  // ⭐ ENLACE CORREGIDO ⭐
+  main: "https://t.me/teralinks12",        // Canal principal
   catalog: "https://t.me/patuconsumoxdmenu", // Catálogo completo
   tutorial: "https://t.me/tutodescargas"    // Tutorial de descargas
 };
@@ -30,17 +31,16 @@ fetch(`/api/get-video?id=${videoId}`)
   .then(response => response.json())
   .then(data => {
     
-    // ⭐ MANEJO DEL SKELETON LOADER
-    videoTitleElement.classList.remove('skeleton-loader'); // Quita la animación
+    videoTitleElement.classList.remove('skeleton-loader'); 
 
     if (data.error) {
-      videoTitleElement.textContent = data.error; // Muestra el error
+      videoTitleElement.textContent = data.error; 
       loading.textContent = "❌ Video no disponible.";
       return;
     }
 
     const video = data;
-    videoTitleElement.textContent = video.title; // Pone el título real
+    videoTitleElement.textContent = video.title; 
 
     btnFilemoon.href = video.filemoon;
     btnStreamhg.href = video.streamhg;
@@ -49,9 +49,9 @@ fetch(`/api/get-video?id=${videoId}`)
     loading.style.display = 'none';
 
     // ⭐ MOSTRAR REDES SOCIALES (CON ICONOS DE NEÓN)
-    // Lo mostramos un poco más rápido
     setTimeout(() => {
       
+      // ⭐ HTML ACTUALIZADO CON FACEBOOK E INSTAGRAM ⭐
       const socialHTML = `
         <h2 class="section-title">🌟 ¡Únete a la Comunidad!</h2>
         <div class="social-icons-container">
@@ -66,6 +66,12 @@ fetch(`/api/get-video?id=${videoId}`)
           </a>
           <a href="${socialLinks.x}" target="_blank" class="social-icon icon-x" aria-label="X (Twitter)">
             <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="${socialLinks.facebook}" target="_blank" class="social-icon icon-facebook" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="${socialLinks.instagram}" target="_blank" class="social-icon icon-instagram" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
         
@@ -82,7 +88,7 @@ fetch(`/api/get-video?id=${videoId}`)
       
       socialPlaceholder.innerHTML = socialHTML;
 
-    }, 1000); // 1 segundo después de cargar los enlaces
+    }, 1000);
   })
   .catch(() => {
     videoTitleElement.classList.remove('skeleton-loader');
